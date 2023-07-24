@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  updater:
+    image: oscarruesga/gitlab_repo_updater
+    volumes:
+      - ${HOST_PATH_TO_CLONE_REPOS}:/repos
+    environment:
+      GITLAB_HOST: ${GITLAB_HOST}
+      GITLAB_GROUP: ${GITLAB_GROUP}
+      GITLAB_TOKEN: ${GITLAB_TOKEN}
