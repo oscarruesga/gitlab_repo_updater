@@ -42,7 +42,9 @@ do
     # Clonar el repositorio si no existe ya
     if [ "$(ls -A $repo_dir)" ]; then
       echo "$repo ya existe, actualizando"
+      git remote set-url origin "https://oauth2:${token}@$host/${repo}.git"
       git fetch --all
+      git pull
     else
       echo "Clonando $repo"
       git clone "https://oauth2:${token}@$host/${repo}.git" .
